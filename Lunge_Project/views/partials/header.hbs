@@ -1,0 +1,54 @@
+<header>
+	<style>
+    
+		.navbar-default {
+		  width: 100%;
+		  height: 100%;
+		  background-color: #444;
+		  padding: 6px;
+		}
+
+        #menuContainer {
+            display: inline;    
+        }
+
+        .menuItem {
+            display: inline;
+            
+        }
+
+		#navbar {
+			background-color: #FF0000;
+		}
+
+        #logoImg {
+            height:5vh;
+        }
+
+	</style>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div id="navbar">
+                
+                <div id="menuContainer">
+                    <a href="home.hbs"><img id="logoImg" src="imgs/lunge.png"></a>
+                    <form action="/" id="getMarket" class="menuItem" method="get">
+            			<input id="marketButton" type="submit" value="Market" />
+    				</form>
+    				<form action="/sellerPage" id="getHome" class="menuItem" method="get">
+            			<input id="sellerButton" type="submit" value="SellerPage" />
+    				</form>
+    				<form action="/account" id="getHome" class="menuItem" method="get">
+            			<input id="accountButton" type="submit" value="Your Account" />
+    				</form>
+    				<form action="/sellerRegister" id="getHome" class="menuItem" method="get">
+            			<input id="sellRegButton" type="submit" value="Register as a Seller" />
+    				</form>
+                </div>  
+            </div>
+    
+        </div>
+    </nav>
+
+</header>

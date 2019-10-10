@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+    
+.grid-container {
+  display: grid;
+  width: 1920px;
+  height: 1200px;
+  align-content: space-around;
+  left: 50%;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 300px 300px 300px;
+  grid-gap: 50px;
+  background-color: #444;
+  padding: 6px;
+}
+
+.grid-container > div {
+  background-color: #777;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.mybox{ 
+    display:flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+</style>
+
+<head>
+   <meta charset="utf-8" />
+
+   <title>Lunge</title>
+   {{> header}}
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Bootstrap/css/cosmo/bootstrap.min.css">
+    <script src="./Bootstrap/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+    <script src="./Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style/sellerPage.css">
+</head>
+    
+<body>
+
+<div class="header">
+
+  </div>
+
+  <div class="background">
+  </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a href="home.hbs"><img id="logoImg" src="imgs/lunge.png"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+    <section>
+            <intro>Browse through our many regimes!</intro>
+        </section>
+        <section id="pageContent">
+            <main role="main">
+                <center>
+                    <h2>Stet facilis ius te</h2>
+                    <p>Lorem ipsum dolor sit amet, nonumes voluptatum mel ea, cu case ceteros cum. Novum commodo malorum vix ut. Dolores consequuntur in ius, sale electram dissentiunt quo te. Cu duo omnes invidunt, eos eu mucius fabellas. Stet facilis ius te, quando voluptatibus eos in. Ad vix mundi alterum, integre urbanitas intellegam vix in.</p>
+                </center>
+            </main>
+    </section>
+
+<div class="mybox">
+    <div class="grid-container">
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>  
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>
+            <div>Product Goes Here</div>  
+        </div>
+</div>
+    
+        
+        
+      
+
+</body>
+</html>
