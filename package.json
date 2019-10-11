@@ -4,7 +4,8 @@
   "description": "My First Webapp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Emmett Stokes",
   "license": "ISC",
@@ -13,5 +14,13 @@
     "hbs": "^4.0.6",
     "mysql": "^2.17.1",
     "request": "^2.88.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDesai71/lunge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SDesai71/lunge/issues"
+  },
+  "homepage": "https://github.com/SDesai71/lunge#readme"
 }
