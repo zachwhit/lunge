@@ -28,6 +28,7 @@ app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
 
+//Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
 });
 
