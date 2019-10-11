@@ -6,10 +6,11 @@
    <title>Lunge</title>
    {{> header}}
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <link rel="stylesheet" href="./Bootstrap/css/cosmo/bootstrap.min.css">
     <script src="./Bootstrap/js/jquery-2.1.3.min.js" type="text/javascript"></script>
-    <script src="./Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="./style/accountStyle.css">
+    <script src="./Bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+    <link rel="stylesheet" href="/style/accountStyle.css">
 </head>
 
 <body>
@@ -21,18 +22,21 @@
     <div class="background">
     </div>
 
-    <nav class="navbar navbar-default">
+    
         <div class="container-fluid">
 
             <div class="navbar-header">
-                <a href="home.html"><img id="logoImg" src="Images/lunge.png"></a>
+                <!-- <a href="home.html"><img id="logoImg" src="imgs/lunge.png"></a> -->
+				<!-- Get rids of that tiny white button beside the logo
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+				-->
             </div>
 
+			<!--
             <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li class="active"> <a href="index.html">Home</a> </li>
@@ -41,18 +45,21 @@
                 <li class="active"> <a href="becomeASeller.html">Become A Verified Seller</a> </li>
                 <li class="active"> <a href="account.html">Account</a> </li>
             </ul>
+			-->
+			
         </div>
         </div>
-    </nav>
+		<br>
+    
 
     <div class="container">
 
         <h1> Account settings </h1>
 
         <form>
-            First name: <input type="text" name="FirstName" value="Brendon">
+            First name: <input type="text" name="FirstName">
             <br>
-            Last name: <input type="text" name="Lastname" value="Tang">
+            Last name: <input type="text" name="Lastname">
             <br>
             Password: <input type="password" name="Password" required> 
             <br>
