@@ -26,6 +26,6 @@ app.get('/sellerRegister', (request, response) => {
 });
 
 app.listen(3000, () => {
-	console.log('Server is up on the port 3000');
+	console.log('Server is up on the port 30001');
 });
 
