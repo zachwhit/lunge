@@ -59,19 +59,9 @@ div .col{
   height: 100%;
 }
 
-.footer {
-  display: table-row;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-}
-
-
 
 .background {
-  /* image from http://www.blogto.com/cafes/page-one-toronto/ */
-  background: url(bp.jpg);
+  background: url(../imgs/bg.jpg);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -81,21 +71,6 @@ div .col{
   background-size: 150%;
 }
 
-
-
-.header {
-  display: table;
-}
-
-.header h1 {
-  display: table-cell;
-  vertical-align: bottom;
-  padding-left: 25px;
-  text-align: left;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 400%;
-}
-
 .well {
   margin: auto;
   width: 80%;
@@ -103,92 +78,3 @@ div .col{
   padding-bottom: 5%;
 }
 
-
-
-#performances {
-  width: 350px;
-  margin: auto;
-}
-
-.carousel-inner > .item > img {
-  width: 360px;
-  height: 365px;
-  margin: auto;
-}
-
-.carousel-inner > .item > .carousel-caption {
-  color: inherit;
-  text-shadow: 0 0px 0px rgba(0, 0, 0, 0);
-  position: relative;
-  right: auto;
-  left: auto;
-}
-
-.carousel-control.left, .carousel-control.right {
-  background-image: none;
-}
-
-@media (min-width: 1025px) {
-
-  body {font-size: 18px; }
-
-  h4 {font-size: 24px; }
-}
-
-@media (max-width: 768px) {
-  .background {
-    left: -100px;
-    right: -150px;
-  }
-}
-
-@media (max-width: 575px) {
-  .background {
-    left: -170px;
-    right: -170px;
-  }
-
-
-  .header {
-    padding-top: 5px;
-    padding-left: 5px;
-  }
-
-  .header h1 {
-    padding-left: 15px;
-    text-align: left;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-size: 270%;
-  }
-
-  .header img {
-    height: 50px;
-    width: 55px;
-  }
-
-  @media (min-height) {
-
-  }
-
-
-  #performances {
-    width: 175px;
-    margin: auto;
-  }
-
-  .carousel-inner > .item > img {
-    width: 180px;
-    height: 183px;
-    margin: auto;
-  }
-
-  .carousel-inner > .item > .carousel-caption {
-    font-size: 12px;
-  }
-
-  h4 {font-size: 16px;}
-}
-
-#logoImg {
-    height:5vh;
-}
