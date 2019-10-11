@@ -8,8 +8,6 @@ app.use(express.static(__dirname + '/views'));
 hbs.registerPartials(__dirname + '/views/partials');
 
 
-
-
 app.get('/', (request, response) => {
 	response.render('market.hbs')
 });
@@ -26,7 +24,6 @@ app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log('Server is up on the port 3000');
 });
-
