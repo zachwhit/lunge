@@ -158,3 +158,30 @@ div .col{
 #logoImg {
     height:5vh;
 }
+
+.container {
+	position:absolute;
+	top:10%;
+	left:40%;
+	clear: both;
+}
+
+.container input {
+	width:100%;
+	clear: both;
+}
+
+#update {
+	position:absolute;
+	top:101%;
+	left:60%;
+	width:20%;
+}
+
+#cancel {
+	position:absolute;
+	top:101%;
+	left:82%;
+	width:20%;
+}
+
