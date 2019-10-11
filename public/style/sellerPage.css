@@ -36,10 +36,13 @@ div .col{
   background-size: 150%;
 }
 
-.header {
-  display: table;
-}
 
+.well {
+  margin: auto;
+  width: 80%;
+  background-color: rgba(200, 200, 200, 0.5);
+  padding-bottom: 5%;
+}
 
 .shell {
   margin: auto;
