@@ -11,6 +11,9 @@ div .col{
   text-align: left;
   background-color: gray;
 }
+
+
+
 .wrapper{
   display: table;
   width: 100%;
@@ -20,6 +23,14 @@ div .col{
 .innerwrap {
   display: table-row;
   height: 100%;
+}
+
+.footer {
+  display: table-row;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
 }
 
 .background {
@@ -33,9 +44,75 @@ div .col{
   background-size: 150%;
 }
 
+
+
+.header {
+  display: table;
+}
+
+.header h1 {
+  display: table-cell;
+  vertical-align: bottom;
+  padding-left: 25px;
+  text-align: left;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 400%;
+}
+
 .well {
   margin: auto;
   width: 80%;
   background-color: rgba(200, 200, 200, 0.5);
   padding-bottom: 5%;
 }
+
+  .header {
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+
+  .header h1 {
+    padding-left: 15px;
+    text-align: left;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 270%;
+  }
+
+  .header img {
+    height: 50px;
+    width: 55px;
+  }
+
+  h4 {font-size: 16px;}
+}
+
+#logoImg {
+    height:5vh;
+}
+
+.container {
+	position:absolute;
+	top:10%;
+	left:40%;
+	clear: both;
+}
+
+.container input {
+	width:100%;
+	clear: both;
+}
+
+#update {
+	position:absolute;
+	top:101%;
+	left:60%;
+	width:20%;
+}
+
+#cancel {
+	position:absolute;
+	top:101%;
+	left:82%;
+	width:20%;
+}
+
