@@ -24,7 +24,6 @@ app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log('Server is up on the port 3000');
 });
-
