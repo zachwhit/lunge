@@ -4,8 +4,9 @@
 		.navbar-default {
 		  width: 100%;
 		  height: 100%;
-		  background-color: #444;
 		  padding: 6px;
+          background-color: white !IMPORTANT;
+          border-color: white !IMPORTANT;
 		}
 
         #menuContainer {
@@ -18,11 +19,23 @@
         }
 
 		#navbar {
-			background-color: #FF0000;
+			background-color: white;
 		}
 
         #logoImg {
-            height:5vh;
+            height:8vh;
+        }
+
+        .navButtons {
+            color: black;
+            font-size: 25px;
+            border: none;
+            background: none;
+
+        }
+
+        #navSearch {
+            border: 0;
         }
 
 	</style>
@@ -34,17 +47,21 @@
                 <div id="menuContainer">
                     <a href="home.hbs"><img id="logoImg" src="imgs/lunge.png"></a>
                     <form action="/" id="getMarket" class="menuItem" method="get">
-            			<input id="marketButton" type="submit" value="Market" />
+            			<input id="marketButton" class="navButtons" type="submit" value="Market" />
     				</form>
     				<form action="/sellerPage" id="getHome" class="menuItem" method="get">
-            			<input id="sellerButton" type="submit" value="SellerPage" />
+            			<input id="sellerButton" class="navButtons" type="submit" value="SellerPage" />
     				</form>
     				<form action="/account" id="getHome1" class="menuItem" method="get">
-            			<input id="accountButton" type="submit" value="Your Account" />
+            			<input id="accountButton" class="navButtons" type="submit" value="Your Account" />
     				</form>
     				<form action="/sellerRegister" id="getHome2" class="menuItem" method="get">
-            			<input id="sellRegButton" type="submit" value="Register as a Seller" />
+            			<input id="sellRegButton" class="navButtons" type="submit" value="Register as a Seller" />
     				</form>
+                    <form class="menuItem" id="navSearch">
+                        <input type="text" placeholder="Search.." >
+
+                    </form>
                 </div>  
             </div>
     
