@@ -38,6 +38,10 @@ app.get('/databaseTesting', (request, response) => {
     response.render('databaseTesting.hbs')
 });
 
+app.get('/userCreation', (request, response) => {
+    response.render('userCreation.hbs')
+});
+
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
 });
