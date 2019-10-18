@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
 var app = express();
 
@@ -27,9 +28,11 @@ app.get('/sellerPage', (request, response) => {
 app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
-
 app.get('/regimePage', (request, response) => {
     response.render('regimePage.hbs')
+});
+app.get('/databaseTesting', (request, response) => {
+    response.render('databaseTesting.hbs')
 });
 
 //Dynamic for Heroku, default 3000 for local hosting
