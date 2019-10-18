@@ -45,6 +45,8 @@ const db = mysql.createConnection({
     debug: true
 });
 
+
+
 // Connect
 db.connect((err) => {
     if(err){
@@ -52,6 +54,13 @@ db.connect((err) => {
     }
     console.log('MySql Connected...');
 });
+
+// Create users table 
+var sql = "CREATE TABLE users3 (firstname VARCHAR(255), lastname VARCHAR(255))";
+	db.query(sql, function (err, result) {
+		if (err) throw err;
+		console.log("Table created");
+	});
 
 // Create table
 app.get('/createpoststable', (req, res) => {
