@@ -44,44 +44,12 @@ div .col{
   background-size: 150%;
 }
 
-
-
-/* .header { */
-  /* display: table; */
-/* } */
-
-/* .header h1 { */
-  /* display: table-cell; */
-  /* vertical-align: bottom; */
-  /* padding-left: 25px; */
-  /* text-align: left; */
-  /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-  /* font-size: 400%; */
-/* } */
-
 .well {
   margin: auto;
   width: 80%;
   background-color: rgba(200, 200, 200, 0.5);
   padding-bottom: 5%;
 }
-
-  /* .header { */
-    /* padding-top: 5px; */
-    /* padding-left: 5px; */
-  /* } */
-
-  /* .header h1 { */
-    /* padding-left: 15px; */
-    /* text-align: left; */
-    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-    /* font-size: 270%; */
-  /* } */
-
-  /* .header img { */
-    /* height: 50px; */
-    /* width: 55px; */
-  /* } */
 
 h4 {font-size: 16px;}
 }
@@ -103,14 +71,16 @@ h4 {font-size: 16px;}
 }
 
 #update {
-	position:absolute;
+	
+  display: inline-block;
 	top:101%;
 	left:60%;
 	width:20%;
 }
 
 #cancel {
-	position:absolute;
+	
+  display: inline-block;
 	top:101%;
 	left:82%;
 	width:20%;

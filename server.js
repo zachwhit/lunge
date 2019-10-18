@@ -1,8 +1,12 @@
 const express = require('express');
 const hbs = require('hbs');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/views'));
@@ -27,6 +31,16 @@ app.get('/sellerPage', (request, response) => {
 app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
+app.get('/regimePage', (request, response) => {
+    response.render('regimePage.hbs')
+});
+app.get('/databaseTesting', (request, response) => {
+    response.render('databaseTesting.hbs')
+});
+
+app.get('/userCreation', (request, response) => {
+    response.render('userCreation.hbs')
+});
 
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
@@ -45,8 +59,6 @@ const db = mysql.createConnection({
     debug: true
 });
 
-
-
 // Connect
 db.connect((err) => {
     if(err){
@@ -55,48 +67,40 @@ db.connect((err) => {
     console.log('MySql Connected...');
 });
 
-// Create users table 
-var sql = "CREATE TABLE users3 (firstname VARCHAR(255), lastname VARCHAR(255))";
-	db.query(sql, function (err, result) {
-		if (err) throw err;
-		console.log("Table created");
-	});
+app.post('/submit',function(req,res){
 
-// Create table
-app.get('/createpoststable', (req, res) => {
-    let sql = 'CREATE TABLE posts(id int AUTO_INCREMENT, title VARCHAR(255), body VARCHAR(255), PRIMARY KEY(id))';
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Posts table created...');
-    });
+  var username=req.body.username;
+  var firstname=req.body.firstname;
+  var lastname=req.body.lastname;
+  var password=req.body.password;
+  var email=req.body.email;
+  var gender=req.body.gender;
+  res.write('Hey "' + req.body.firstname+'".\n');
+  res.write('You sent the email "' + req.body.email+'".\n');
+  res.write('You sent the username "' + req.body.username+'".\n');
+
+  var sql = "INSERT INTO testfield (username, firstname, lastname, password, email, gender) VALUES ('"+username+"', '"+firstname+"','"+lastname+"', '"+password+"', '"+email+"', '"+gender+"')";
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+     res.end();
+  });
 });
 
-// Insert post 1
-app.get('/addpost1', (req, res) => {
-    let post = {title:'Post One', body:'This is post number one'};
-    let sql = 'INSERT INTO posts SET ?';
-    let query = db.query(sql, post, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post 1 added...');
-    });
+app.post('/getuser',function(req,res){
+  var username=req.body.username;
+  var sql = "SELECT * FROM testfield WHERE testfield.username = '"+username+"'";
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record pulled");
+    res.send(result);
+  });
 });
 
-// Insert post 2
-app.get('/addpost2', (req, res) => {
-    let post = {title:'Post Two', body:'This is post number two'};
-    let sql = 'INSERT INTO posts SET ?';
-    let query = db.query(sql, post, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post 2 added...');
-    });
-});
 
 // Select posts
-app.get('/getposts', (req, res) => {
-    let sql = 'SELECT * FROM posts';
+app.get('/get', (req, res) => {
+    let sql = 'SELECT * FROM testfield';
     let query = db.query(sql, (err, results) => {
         if(err) throw err;
         console.log(results);
