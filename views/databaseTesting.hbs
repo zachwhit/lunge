@@ -36,39 +36,39 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" >Username:</label>
                 <div class="col-sm-10">
-                  <input  class="form-control"  placeholder="Enter a username" required>
+                  <input type="text" name="username" class="form-control"  placeholder="Enter a username" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2" >First Name:</label>
                 <div class="col-sm-10">
-                  <input  class="form-control"  placeholder="Enter your first name" required>
+                  <input type="text" name="firstname" class="form-control"  placeholder="Enter your first name" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2" >Last Name:</label>
                 <div class="col-sm-10">
-                  <input  class="form-control"  placeholder="Enter your last name" required>
+                  <input type="text" name="lastname" class="form-control"  placeholder="Enter your last name" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2">Password: </label>
               <div class="col-sm-10">
-                <input  class="form-control" placeholder="Enter a password" required>
+                <input type="password" name="password" class="form-control" placeholder="Enter a password" required>
               </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2">Email: </label>
               <div class="col-sm-10">
-                <input  class="form-control" placeholder="Enter your email" required>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
               </div> 
               </div>
               <br />
               <p><b> Gender: </b></p>
               <div>
-                <label class="radio-inline" ><input type="radio" name="genderRadio" value="Male" checked="checked">Male</label>
-                <label class="radio-inline"><input type="radio" name="genderRadio" value="Female">Female</label>
-                <label class="radio-inline"><input type="radio" name="genderRadio" value="Other">Other</label>
+                <label class="radio-inline" ><input type="radio" name="gender" value="Male" checked="checked">Male</label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label>
               </div>
               <div class="btn btn-deafult">
                 <button class="button-inline" type="submit" value="Submit" >Submit</button>
@@ -87,7 +87,7 @@
         <div class="well">
           <div class="row">
             <div class="col-md-8 vcenter">
-              <form class="form-horizontal" action="/submit" method="POST" >
+              <form class="form-horizontal" action="/databaseTesting" method="GET" >
                 <div class="form-group">
                   <label class="control-label col-sm-2" >Enter username to pull info from:</label>
                   <div class="col-sm-10">
@@ -101,7 +101,6 @@
 
               <label class="control-label col-sm-2" >Username:</label>
               <div class="col-sm-10">
-                <output class="form-control">
               </div>
               <label class="control-label col-sm-2" >First Name:</label>
               <div class="col-sm-10">
