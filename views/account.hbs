@@ -26,32 +26,83 @@
     <div class="background">
     </div>
 
-    <div class="container">
+    <div  class="wrapper">
 
-        <h1> Account settings </h1>
+    
+            <div class="well">
 
-        <form>
-            First name: <input type="text" name="FirstName">
-            <br>
-            Last name: <input type="text" name="Lastname">
-            <br>
-            Password: <input type="password" name="Password" required> 
-            <br>
-            New password: <input type="password" name="NewPassword">
-            <br>
-            Confirm new password: <input type="password" name="ConfirmNewPassword">
-            <br>
-            Email: <input type="email" name="EmailAddress">
-            <br>
-            New Email: <input type="email" name="NewEmailAddress">
-            <br>
-            Confirm new email: <input type="email" name="ConfirmNewEmailAddress">
-            <br>
-            <input type="submit" value ="Update" id="update">
-        </form>
+                <h2 class="text-center">Account Settings</h2>
 
-        <input type="Submit" value="Cancel" id="cancel">
-
+                <div class="row">
+                    <div class="col-md-11 vcenter">
+                        <form class="form-horizontal" method="post" >
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">First Name:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Last Name:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Current Password:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">New Password:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Confirm New Password:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Current Email:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">New Email:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Confirm New Email:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control"  placeholder="Enter full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="submit" value ="Update" id="update">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+                    <form class="form-horizontal" action="/sellerPage" method="get">
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input class="form-control" type="submit" value="Cancel" />
+                            </div>
+                        </div>
+                    </form>
+                
+        
     </div>
 
 
