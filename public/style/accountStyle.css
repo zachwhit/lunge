@@ -71,14 +71,16 @@ h4 {font-size: 16px;}
 }
 
 #update {
-	position:absolute;
+	
+  display: inline-block;
 	top:101%;
 	left:60%;
 	width:20%;
 }
 
 #cancel {
-	position:absolute;
+	
+  display: inline-block;
 	top:101%;
 	left:82%;
 	width:20%;

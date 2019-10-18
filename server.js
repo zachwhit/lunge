@@ -28,6 +28,10 @@ app.get('/sellerRegister', (request, response) => {
 	response.render('sellerRegister.hbs')
 });
 
+app.get('/regimePage', (request, response) => {
+    response.render('regimePage.hbs')
+});
+
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
 });
