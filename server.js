@@ -42,6 +42,10 @@ app.get('/userCreation', (request, response) => {
     response.render('userCreation.hbs')
 });
 
+app.get('/signIn', (request, response) => {
+    response.render('signIn.hbs')
+});
+
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
 });
@@ -69,17 +73,16 @@ db.connect((err) => {
 
 app.post('/submit',function(req,res){
 
-  var username=req.body.username;
   var firstname=req.body.firstname;
   var lastname=req.body.lastname;
-  var password=req.body.password;
-  var email=req.body.email;
+  var password=req.body.email;
+  var email=req.body.password;
+  var phonenumber=req.body.phonenumber;
   var gender=req.body.gender;
   res.write('Hey "' + req.body.firstname+'".\n');
   res.write('You sent the email "' + req.body.email+'".\n');
-  res.write('You sent the username "' + req.body.username+'".\n');
 
-  var sql = "INSERT INTO testfield (username, firstname, lastname, password, email, gender) VALUES ('"+username+"', '"+firstname+"','"+lastname+"', '"+password+"', '"+email+"', '"+gender+"')";
+  var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+firstname+"','"+lastname+"', '"+email+"', '"+password+"', '"+phonenumber+"', '"+gender+"')";
   db.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted");
