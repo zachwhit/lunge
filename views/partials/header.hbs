@@ -5,12 +5,24 @@
 		  width: 100%;
 		  height: 100%;
 		  padding: 6px;
-          background-color: white !IMPORTANT;
-          border-color: white !IMPORTANT;
+          background-color: rgba(255, 255, 255, 0.0) !IMPORTANT;
+          border-color: rgba(255, 255, 255, 0.0) !IMPORTANT;
 		}
 
-        #menuContainer {
-            display: inline;    
+        #menuContainerLeft {
+            display: inline; 
+            float: left;  
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #menuContainerRight {
+            display: inline;  
+            float: right;  
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         .menuItem {
@@ -24,18 +36,53 @@
 
         #logoImg {
             height:8vh;
+            display: inline;
+        }
+
+
+
+        #navSearch {
+            display: inline;
+            height: 43px;
+            padding: 10px 18px;
+            font-size: 15px;
+            line-height: 1.42857143;
+            color: #333333;
+            background-color: #ffffff;
+            background-image: none;
+            border: 1px solid #cccccc;
+            border-radius: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            margin-left: 30px;
+            margin-right: 3px;
+            width: 30vw;
         }
 
         .navButtons {
-            color: black;
-            font-size: 25px;
-            border: none;
-            background: none;
-
+            display: inline;
+            padding: 10px 18px;
+            font-size: 17px;
+            line-height: 1.43;
+            color: white;
+            background-color: #7AC043;
+            background-image: none;
+            border: 1px solid #7AC043;
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
         }
 
-        #navSearch {
-            border: 0;
+        .navButtons:hover {
+            background-color: #a0e36f;
+            transition: 0.3s;
+            border: 1px solid #a0e36f;
         }
 
 	</style>
@@ -44,30 +91,28 @@
 
             <div id="navbar">
                 
-                <div id="menuContainer">
-                    <a href="/"><img id="logoImg" src="imgs/lunge.png"></a>
-                    <form action="/" id="getMarket" class="menuItem" method="get">
-            			<input id="marketButton" class="navButtons" type="submit" value="Market" />
-    				</form>
-    				<form action="/sellerPage" id="getHome" class="menuItem" method="get">
-            			<input id="sellerButton" class="navButtons" type="submit" value="My Page" />
-    				</form>
-    				<form action="/account" id="getHome1" class="menuItem" method="get">
-            			<input id="accountButton" class="navButtons" type="submit" value="Account Settings" />
-    				</form>
-    				<form action="/sellerRegister" id="getHome2" class="menuItem" method="get">
-            			<input id="sellRegButton" class="navButtons" type="submit" value="Become A Seller" />
-    				</form>
-                    <form action="/databaseTesting" id="dbtesting" class="menuItem" method="get">
-                        <input id="dbtestingButton" class="navButtons" type="submit" value="Database Testing" />
+                <div id="menuContainerLeft">
+                    
+                    <form  method="post" >
+                        <a href="/"><img id="logoImg" src="imgs/lunge.png"></a>
+                        <input id="navSearch" placeholder="Search">
+                        <button type="submit" id="navSubmit" class="navButtons">
+                            <span class="glyphicon glyphicon-search" style="color:white"></span>
+                        </button> 
                     </form>
-                    <form action="/userCreation" id="userCreation" class="menuItem" method="get">
-                        <input id="userCreationButton" class="navButtons" type="submit" value="Sign up" />
+                </div> 
+
+                <div id="menuContainerRight">
+                    <form action="/sellerPage" id="getHome" class="menuItem" method="get">
+                        <input id="sellerButton" class="navButtons" type="submit" value="My Page" />
                     </form>
+                    <form action="/sellerRegister" id="getHome2" class="menuItem" method="get">
+                        <input id="sellRegButton" class="navButtons" type="submit" value="Login/Register" />
                 </div>  
+            
             </div>
-    
         </div>
+        
     </nav>
 
 </header>
