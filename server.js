@@ -46,6 +46,10 @@ app.get('/signIn', (request, response) => {
     response.render('signIn.hbs')
 });
 
+app.get('/regimeCreation', (request, response) => {
+    response.render('regimeCreation.hbs')
+});
+
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
 });
