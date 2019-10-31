@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
+// Connectors for mysql functions
+const userConnector = require('./connectors/userConnector');
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,95 +57,12 @@ app.get('/regimeCreation', (request, response) => {
 app.listen(process.env.PORT || 3000, () => {
 });
 
+// User Creation INSERT
+app.post('/userCreation',function(req,res){
 
+    var data = [req.body.firstname, req.body.lastname, req.body.password, req.body.email, req.body.phonenumber, req.body.gender]
 
-// Create connection
-const db = mysql.createConnection({
-    host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
-    user     : 'admin',
-    password : 'o0SgT30xueqiajnVsPaT',
-    database : 'lunge',
-    port: 3306,
-    timeout: 60000,
-    debug: true
+  userConnector.addUser(data);
+  res.render('success.hbs',{name:data[0]});
 });
 
-// Connect
-db.connect((err) => {
-    if(err){
-        throw err;
-    }
-    console.log('MySql Connected...');
-});
-
-app.post('/submit',function(req,res){
-
-  var firstname=req.body.firstname;
-  var lastname=req.body.lastname;
-  var password=req.body.email;
-  var email=req.body.password;
-  var phonenumber=req.body.phonenumber;
-  var gender=req.body.gender;
-  res.write('Hey "' + req.body.firstname+'".\n');
-  res.write('You sent the email "' + req.body.email+'".\n');
-
-  var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+firstname+"','"+lastname+"', '"+email+"', '"+password+"', '"+phonenumber+"', '"+gender+"')";
-  db.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-     res.end();
-  });
-});
-
-app.post('/getuser',function(req,res){
-  var username=req.body.username;
-  var sql = "SELECT * FROM testfield WHERE testfield.username = '"+username+"'";
-  db.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record pulled");
-    res.send(result);
-  });
-});
-
-
-// Select posts
-app.get('/get', (req, res) => {
-    let sql = 'SELECT * FROM testfield';
-    let query = db.query(sql, (err, results) => {
-        if(err) throw err;
-        console.log(results);
-        res.send('Posts fetched...');
-    });
-});
-
-// Select single post
-app.get('/getpost/:id', (req, res) => {
-    let sql = `SELECT * FROM posts WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post fetched...');
-    });
-});
-
-// Update post
-app.get('/updatepost/:id', (req, res) => {
-    let newTitle = 'Updated Title';
-    let sql = `UPDATE posts SET title = '${newTitle}' WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post updated...');
-    });
-});
-
-// Delete post
-app.get('/deletepost/:id', (req, res) => {
-    let newTitle = 'Updated Title';
-    let sql = `DELETE FROM posts WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post deleted...');
-    });
-});
