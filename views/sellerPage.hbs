@@ -31,7 +31,7 @@
 
             <div>
                 <form action="/account" method="get">
-                    <input type="submit" value="Edit" />
+                    <input class="sellerPageButtons" type="submit" value="Edit" />
                 </form>
             </div>
 
@@ -67,7 +67,11 @@
                         <img src="imgs/file_image.png" height="100" width="100">
                         <img src="imgs/file_image.png" height="100" width="100">
                     </div>
-                    
+                    <div>
+                      <form action="/regimeCreation" method="get">
+                          <input class="sellerPageButtons" type="submit" value="Create New Regime" />
+                      </form>
+                  </div>
                 </div>
 
                 <div id="feedback">
@@ -97,4 +101,5 @@
     </div>
 
 </body>
+<script src="js/modal.js"></script>
 </html>
