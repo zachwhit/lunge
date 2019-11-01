@@ -1,4 +1,6 @@
 const mysql = require('mysql');
+const nodemailer = require('nodemailer');
+const exphbs = require('express-handlebars');
 
 
 const addUser = (inputArray) => {
@@ -19,9 +21,40 @@ const addUser = (inputArray) => {
     db.query(sql, function (err, res) {
     if (err) throw err;
 
+
+    // db.end();
+
+	});
+	   async function main() {
+  
+
+   
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        service: 'gmail',
+        secure: false,
+        auth: {
+            user: 'lungesystem@gmail.com', 
+            pass: 'lunge123!' 
+        }
+    });
+
+   
+    let info = await transporter.sendMail({
+        from: '"LUNGE" <admin@lunge.com>', 
+        to: inputArray[3], 
+        subject: 'Lunge Confirmation Email', 
+        html: '<a href = "https://lunge-2.herokuapp.com/verified">Click here to confirm. </a>' 
+    });
+    
+}
+
+main().catch(console.error);
+
     db.end();
 
 	});
+
 };
 
 
@@ -85,6 +118,7 @@ app.get('/deletepost/:id', (req, res) => {
 
 */
 
+
 const addRegime = (inputArray) => {
     const db = mysql.createConnection({
         host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
@@ -111,4 +145,5 @@ const addRegime = (inputArray) => {
 module.exports = {
   addUser,
   addRegime
+
 };
