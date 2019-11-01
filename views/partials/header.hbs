@@ -103,6 +103,7 @@
           overflow: auto; /* Enable scroll if needed */
           background-color: rgb(0,0,0); /* Fallback color */
           background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          text-align: center;
         }
 
         /* Modal Content/Box */
@@ -182,7 +183,7 @@
             <div id="loginBoxModal">
                   <div id="loginBox" class="loginBox">
                     <div class="loginBoxInternal">
-                      <h2><b>Sign In to the Marketplace</b></h2>
+                      <h2>Sign In to the Marketplace</h2>
                       <div class="submissionForm">
                         <form class="form-horizontal" action="/submit" method="POST" >
                           <div class="form-group">
@@ -197,7 +198,7 @@
                               <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
                             </div>
                           </div>
-                          <div class="btn btn-deafult">
+                          <div class="text-center">
                             <button class="navButtons" type="submit" value="Submit" >Sign In</button>
                           </div>
                         </form>
@@ -205,7 +206,6 @@
                         <div class="createAccountButtons">
                             <input class="navButtons" type="button" onclick="location.href='/userCreation';" value ="Create a User Account" />
                             <input class="navButtons" type="button" onclick="location.href='/sellerRegister';" value="Become a Verified Seller"/>
-
                         </div>
                       </div>
                     </div>

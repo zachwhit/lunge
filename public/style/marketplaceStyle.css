@@ -49,3 +49,10 @@ div .col{
     align-items: center; 
     justify-content: center; 
 }
+
+.regimePic {
+  object-fit: cover;
+  height: 225px;
+  width: 225px;
+  border-radius: 10px;
+}
