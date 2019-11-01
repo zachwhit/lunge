@@ -23,71 +23,83 @@
   </div>
 
   <div  class="wrapper">
-
     <div class="container innerwrap">
-
       <div class="well">
 
-        <h2 class="text-center">Apply To Become A Verified Seller Now</h2> <br />
-
+        <h2 class="text-center">Apply To Become A Verified Seller</h2>
             <div class="row">
-              <div class="col-md-8 vcenter">
-                <form class="form-horizontal" method="post" >
-                  <div class="form-group">
-                          <label class="control-label col-sm-2" >Name:</label>
-                      <div class="col-sm-10">
-                          <input  class="form-control"  placeholder="Enter full name" required>
+                <div class="col-md-11 vcenter">
+                  <form class="form-horizontal" action="/sellerRegister" method="POST" >
+                      
+                      <div class="form-group">
+                          <label class="control-label col-sm-2">First Name:</label>
+                          <div class="col-sm-10">
+                              <input type="text" name="firstname" class="form-control"  placeholder="First Name" required>
+                          </div>
                       </div>
-                  </div>
-                  <div class="form-group">
-                          <label class="control-label col-sm-2">Email: </label>
-                  <div class="col-sm-10">
-                          <input  class="form-control" placeholder="Enter your email" required>
-                  </div>
-                  </div>
-                  <div class="form-group">
-                          <label class="control-label col-sm-2">Phone Number:</label>
-                  <div class="col-sm-10">
-                          <input  class="form-control" placeholder="(###)-###-####" required>
-                  </div>
-                  </div>
-                  <br />
-                  <p><b> Gender: </b></p>
-                  <div>
-                    <label class="radio-inline"><input type="radio" name="genderRadio" required>Male</label>
-                    <label class="radio-inline"><input type="radio" name="genderRadio">Female</label>
-                    <label class="radio-inline"><input type="radio" name="genderRadio">Prefer not to say</label>
-                  </div>
 
-                  <div class="form-group">
-                          <label class="control-label col-sm-2" >About you: </label>
-                      <div class="col-sm-12">
-                          <textarea  class="form-control"  placeholder="Description of yourself here. Who are you? What do you do?"></textarea>
+                      <div class="form-group">
+                          <label class="control-label col-sm-2">Last Name:</label>
+                          <div class="col-sm-10">
+                              <input type="text" name="lastname" class="form-control"  placeholder="Last Name" required>
+                          </div>
                       </div>
-                  </div>
-                    <div class="btn btn-deafult">
-                  <button class="button-inline" type="submit" value="Submit" >Submit</button>
-                  <button class="button-inline"  type="reset" value="Reset" >Reset</button>
-                </div>
-                </form>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-2">Phone Number:</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="phonenumber" class="form-control" placeholder="(###)-###-####" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-2">Gender:</label>
+                        <div class="col-sm-3">
+                          <label class="radio-inline"><input type="radio" name="gender" value="Male" checked="checked">Male</label>
+                          <label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+                          <label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                              <label class="control-label col-sm-2" >About You:</label>
+                          <div class="col-sm-10">
+                              <textarea  class="form-control"  placeholder="A short description of yourself! Who are you? What do you do?"></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-2">Email:</label>
+                        <div class="col-sm-10">
+                          <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        </div> 
+                      </div>
+
+                      <div class="form-group">
+                          <label class="control-label col-sm-2">Password:</label>
+                          <div class="col-sm-10">
+                              <input type="password" name="password" class="form-control"  placeholder="Password" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="control-label col-sm-2">Confirm Password:</label>
+                          <div class="col-sm-10">
+                              <input type="password" name="passwordConfirm" class="form-control"  placeholder="Confirm Password" required>
+                          </div>
+                      </div>
+
+                      <div class="text-center">
+                        <input class="navButtons" type="submit" value="Submit"/>
+                        <input class="navButtons"  type="reset" value="Reset" />
+                      </div>
+                      
+                  </form>
               </div>
-            </div>
           </div>
       </div>
 
-      <br />
 
-      <div class="footer">
-
-        <footer>
-          <div class="container-fluid">
-
-            <div class="row">
-
-            </div>
-          </div>
-        </footer>
-      </div>
     </div>
 
 </body>
