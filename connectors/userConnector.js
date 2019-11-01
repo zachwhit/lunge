@@ -2,7 +2,6 @@ const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 
-
 const addUser = (inputArray) => {
     const db = mysql.createConnection({
         host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
@@ -17,10 +16,9 @@ const addUser = (inputArray) => {
         throw err;
     }
     });
-    var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[5]+"', '"+inputArray[4]+"', '"+inputArray[2]+"', '"+inputArray[3]+"')";
+   var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[5]+"', '"+inputArray[4]+"', '"+inputArray[2]+"', '"+inputArray[3]+"')";
     db.query(sql, function (err, res) {
     if (err) throw err;
-
 
     // db.end();
 
@@ -42,7 +40,7 @@ const addUser = (inputArray) => {
    
     let info = await transporter.sendMail({
         from: '"LUNGE" <admin@lunge.com>', 
-        to: inputArray[3], 
+        to: inputArray[4], 
         subject: 'Lunge Confirmation Email', 
         html: '<a href = "https://lunge-2.herokuapp.com/verified">Click here to confirm. </a>' 
     });
@@ -50,11 +48,6 @@ const addUser = (inputArray) => {
 }
 
 main().catch(console.error);
-
-    db.end();
-
-	});
-
 };
 
 
@@ -118,32 +111,6 @@ app.get('/deletepost/:id', (req, res) => {
 
 */
 
-
-const addRegime = (inputArray) => {
-    const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
-        user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
-        database : 'lunge',
-        port: 3306
-    });
-
-    db.connect((err) => {
-    if(err){
-        throw err;
-    }
-    });
-    var sql = "INSERT INTO regime (name, price, description, category, tags, goals) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[2]+"', '"+inputArray[3]+"', '"+inputArray[4]+"', '"+inputArray[5]+"')";
-    db.query(sql, function (err, res) {
-    if (err) throw err;
-
-    db.end();
-
-    });
-};
-
 module.exports = {
   addUser,
-  addRegime
-
 };
