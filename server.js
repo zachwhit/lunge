@@ -67,10 +67,14 @@ app.listen(process.env.PORT || 3000, () => {
 // User Creation INSERT
 app.post('/userCreation',function(req,res){
 
-    var data = [req.body.firstname, req.body.lastname, req.body.password, req.body.email, req.body.phonenumber, req.body.gender]
-
-  userConnector.addUser(data);
-  res.render('success.hbs',{name:data[0]});
+  if(req.body.passwordConfirm == req.body.password) {
+    var data = [req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.gender, req.body.email, req.body.password]
+    userConnector.addUser(data);
+    res.render('success.hbs',{name:data[0]});
+  }
+  else{
+    res.send("Passwords do not match.");
+  }
 });
 
 // Regime Creation INSERT
@@ -81,4 +85,6 @@ app.post('/regimeCreation',function(req,res){
   userConnector.addRegime(data);
   res.render('sellerPage.hbs');
 });
+
+
 

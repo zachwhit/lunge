@@ -16,7 +16,7 @@ const addUser = (inputArray) => {
         throw err;
     }
     });
-    var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[2]+"', '"+inputArray[3]+"', '"+inputArray[4]+"', '"+inputArray[5]+"')";
+   var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[5]+"', '"+inputArray[4]+"', '"+inputArray[2]+"', '"+inputArray[3]+"')";
     db.query(sql, function (err, res) {
     if (err) throw err;
 
@@ -40,7 +40,7 @@ const addUser = (inputArray) => {
    
     let info = await transporter.sendMail({
         from: '"LUNGE" <admin@lunge.com>', 
-        to: inputArray[3], 
+        to: inputArray[4], 
         subject: 'Lunge Confirmation Email', 
         html: '<a href = "https://lunge-2.herokuapp.com/verified">Click here to confirm. </a>' 
     });
