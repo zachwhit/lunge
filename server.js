@@ -20,8 +20,6 @@ app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + '/views/partials');
 
 
-
-
 app.get('/', (request, response) => {
 	response.render('market.hbs')
 });
@@ -69,12 +67,9 @@ app.listen(process.env.PORT || 3000, () => {
 app.post('/userSignIn', async (req,res) => {
   let user = await userConnector.userSignIn(req.body.email, req.body.password);
   firstname = user[0]["firstname"];
-  email = user[0]["email"];
-  phonenumber = user[0]["phonenumber"];
-  res.render('success.hbs', 
-    {email: email,
-    firstname: firstname,
-    phonenumber: phonenumber,
+  res.render('signInSuccess.hbs', 
+    {
+     name: firstname,
   });
 });
 
@@ -84,7 +79,10 @@ app.post('/userCreation',function(req,res){
   if(req.body.passwordConfirm == req.body.password) {
     var data = [req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.gender, req.body.email, req.body.password]
     userConnector.addUser(data);
-    res.render('success.hbs',{name:data[0]});
+    res.render('userCreationSuccess.hbs',
+      {name:data[0],
+       email: data[4],
+      });
   }
   else{
     res.send("Passwords do not match.");
