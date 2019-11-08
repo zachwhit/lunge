@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 
+
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
 
@@ -88,6 +89,29 @@ app.post('/userCreation',function(req,res){
   else{
     res.send("Passwords do not match.");
   }
+});
+
+// Fetch Regime Via Category - used on Main Page for featured Regimes
+app.post('/fetchRegimeCategory', async (req,res) => {
+  let regimes = await userConnector.fetchRegimeCategory(req.body.category);
+  name = regimes[0]["name"];
+  price = regimes[0]["price"];
+  description = regimes[0]["description"];
+  categorytype = regimes[0]["category"];
+  tags = regimes[0]["tags"];
+  goals = regimes[0]["goals"];
+  image = regimes[0]["category"] + ".jfif";
+  regimesObj = JSON.stringify(regimes);
+  res.render('categoryPage.hbs', 
+    {
+      name: name,
+      price: price,
+      description: description,
+      categorytype: categorytype,
+      tags: tags,
+      goals: goals,
+      image: image,
+    });
 });
 
 // Regime Creation INSERT

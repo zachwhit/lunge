@@ -56,3 +56,110 @@ div .col{
   width: 225px;
   border-radius: 10px;
 }
+
+.regimePicCareer {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Career.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+.regimePicFinance {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Finance.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+.regimePicHealth {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Health.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+.regimePicLegacy {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Legacy.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+.regimePicPassions {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Passions.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+.regimePicSocial {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Social.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+  
+}
+
+.regimePicSpiritual {
+  object-fit: cover;
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("https://lunge-2.herokuapp.com/imgs/temp/Spiritual.jfif") no-repeat right top;
+  background-size: cover;
+  color: white;
+  font-size: 40px;
+  text-shadow: 4px 4px 6px #000000;
+}
+
