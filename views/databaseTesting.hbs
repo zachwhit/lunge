@@ -18,8 +18,40 @@
 </head>
 
 <body>
+    <div  class="wrapper">
+      <div class="container innerwrap">
+        <div class="well">
+          <div class="row">
+            <div class="col-md-8 vcenter">
+                    <div class="submissionForm">
+                        <form class="form-horizontal" action="/fetchRegimeCategory" method="POST" >
+                          <div class="form-group">
+                            <label class="control-label col-sm-2">category: </label>
+                            <div id="emailInput" class="col-sm-10">
+                              <input type="category" name="category" class="form-control" placeholder="Enter your category" required>
+                            </div> 
+                          </div>
 
-  <div class="background">
+                          <div class="text-center">
+                            <button class="navButtons" type="submit" value="Submit" >get regimes</button>
+                          </div>
+                        </form>
+                        </div>
+                      </div>
+
+
+          <div >
+            <h2 style="color: #006fbf">regimes</h2>
+                <table>
+                  {{{ name }}}
+                  {{{ price }}}
+                  {{{ description }}}
+                  {{{ categorytype }}}
+                  {{{ tags }}}
+                  {{{ goals }}}
+                </table>
+          </div>
+<!--   <div class="background">
   </div>
 
   <div  class="wrapper">
@@ -78,28 +110,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <br/>
 
-    <div  class="wrapper">
-      <div class="container innerwrap">
-        <div class="well">
-          <div class="row">
-            <div class="col-md-8 vcenter">
-              <form class="form-horizontal" action="/databaseTesting" method="GET" >
-                <div class="form-group">
-                  <label class="control-label col-sm-2" >Enter username to pull info from:</label>
-                  <div class="col-sm-10">
-                    <input  class="form-control"  placeholder="Enter a username" required>
-                  </div>
-                </div>
-                <div class="btn btn-deafult">
-                  <button class="button-inline" type="submit" value="Submit" >Submit</button>
-                </div>
-              </form>
 
-              <label class="control-label col-sm-2" >Username:</label>
+<!--               <label class="control-label col-sm-2" >Username:</label>
               <div class="col-sm-10">
               </div>
               <label class="control-label col-sm-2" >First Name:</label>
@@ -117,6 +133,14 @@
               <label class="control-label col-sm-2" >Gender:</label>
               <div class="col-sm-10">
                 <output class="form-control">
+              </div>
+              <div class="col-sm-10">
+                
+                <table id="rewardstb">
+                  {{{ renderedUsers }}}
+                </table> -->
+
+                
               </div>
             </div>
           </div>

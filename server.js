@@ -90,6 +90,36 @@ app.post('/userCreation',function(req,res){
   }
 });
 
+// Fetch Regime Via Category - used on Main Page for featured Regimes
+app.post('/fetchRegimeCategory', async (req,res) => {
+  let regimes = await userConnector.fetchRegimeCategory(req.body.category);
+  name = regimes[0]["name"];
+  price = regimes[0]["price"];
+  description = regimes[0]["description"];
+  categorytype = regimes[0]["category"];
+  tags = regimes[0]["tags"];
+  goals = regimes[0]["goals"];
+  regimesObj = JSON.stringify(regimes);
+  res.render('categoryPage.hbs', 
+    {
+      name: name,
+      price: price,
+      description: description,
+      categorytype: categorytype,
+      tags: tags,
+      goals: goals,
+    });
+});
+
+// Category Select
+app.post('/categorySelect', function(req, res){
+    var category = req.body.category;
+    console.log(category);
+    res.render( 'categoryPage.hbs', { category:category } );
+});
+
+
+
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
