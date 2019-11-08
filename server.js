@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 
+
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
 
@@ -99,6 +100,7 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   categorytype = regimes[0]["category"];
   tags = regimes[0]["tags"];
   goals = regimes[0]["goals"];
+  image = regimes[0]["category"] + ".jfif";
   regimesObj = JSON.stringify(regimes);
   res.render('categoryPage.hbs', 
     {
@@ -108,17 +110,9 @@ app.post('/fetchRegimeCategory', async (req,res) => {
       categorytype: categorytype,
       tags: tags,
       goals: goals,
+      image: image,
     });
 });
-
-// Category Select
-app.post('/categorySelect', function(req, res){
-    var category = req.body.category;
-    console.log(category);
-    res.render( 'categoryPage.hbs', { category:category } );
-});
-
-
 
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){

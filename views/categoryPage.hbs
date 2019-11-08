@@ -15,6 +15,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/style/marketplaceStyle.css">
+    <style>#imageBox{
+      height: 500px;
+      width: 500px;
+      }
+    </style>
 </head>
     
 <body>
@@ -30,19 +35,28 @@
   </nav>
 
     <section id="pageContent">
-            <main role="main">
-                <center>
-                    <h2>{{categorytype}}</h2>
-                    <h1>{{name}}</h1>
-                </center>
-            </main>
+      <main role="main">
+        <center>
+          <div class="mybox">
+            <div>
+              <div><img class="regimePic" src="imgs/temp/{{image}}"></div>
+              <h1>{{name}}</h1>
+              <h2>{{description}}</h2>
+              <h2>Goals: {{goals}}</h2>
+              <h2>Category: {{categorytype}}</h2>
+              <h2>Tags: {{tags}}</h2>
+              <h2>${{price}}</h2>
+            </div>
+          </div>
+        </center>
+      </main>
     </section>
   
 </div>
     
         
         
-      
+
 
 </body>
 </html>
