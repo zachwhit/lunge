@@ -19,13 +19,9 @@ const addUser = (inputArray) => {
    var sql = "INSERT INTO user (firstname, lastname, password, email, phonenumber, gender) VALUES ('"+inputArray[0]+"','"+inputArray[1]+"', '"+inputArray[5]+"', '"+inputArray[4]+"', '"+inputArray[2]+"', '"+inputArray[3]+"')";
     db.query(sql, function (err, res) {
     if (err) throw err;
-
     // db.end();
-
 	});
 	   async function main() {
-  
-
    
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -35,21 +31,33 @@ const addUser = (inputArray) => {
             user: 'lungesystem@gmail.com', 
             pass: 'lunge123!' 
         }
-    });
-
-   
+    });  
     let info = await transporter.sendMail({
         from: '"LUNGE" <admin@lunge.com>', 
         to: inputArray[4], 
         subject: 'Lunge Confirmation Email', 
         html: '<a href = "https://lunge-2.herokuapp.com/verified">Click here to confirm. </a>' 
     });
-    
 }
-
 main().catch(console.error);
 };
 
+const userSignIn = (email, password) => {
+    return new Promise((resolve, reject) => {
+    const db = mysql.createConnection({
+        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        user     : 'admin',
+        password : 'o0SgT30xueqiajnVsPaT',
+        database : 'lunge',
+        port: 3306
+    });
+    db.connect();      
+        db.query("SELECT * FROM user WHERE user.email = ('"+email+"') AND user.password = ('"+password+"')", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+        db.end();
+    });
+}
 
 //code to add in later
 
@@ -113,4 +121,5 @@ app.get('/deletepost/:id', (req, res) => {
 
 module.exports = {
   addUser,
+  userSignIn,
 };

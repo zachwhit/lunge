@@ -64,6 +64,19 @@ app.get('/verified', (request, response) => {
 app.listen(process.env.PORT || 3000, () => {
 });
 
+// User Login
+app.post('/userSignIn', async (req,res) => {
+  let user = await userConnector.userSignIn(req.body.email, req.body.password);
+  firstname = user[0]["firstname"];
+  email = user[0]["email"];
+  phonenumber = user[0]["phonenumber"];
+  res.render('success.hbs', 
+    {email: email,
+    firstname: firstname,
+    phonenumber: phonenumber,
+  });
+});
+
 // User Creation INSERT
 app.post('/userCreation',function(req,res){
 
