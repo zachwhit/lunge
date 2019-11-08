@@ -14,6 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/style/regimePage.css">
+    <script src="js/modal.js"></script>
+    <script src="js/csvDownload.js"></script>
 </head>
 
 <body>
@@ -51,7 +53,7 @@
                 </div>
             </div>   
 
-              
+            <a href='#' onclick='downloadCSV({ filename: "regime.csv" });'>Export as CSV</a>
               
             <div id="structure">
                 <div id="lists">
@@ -92,5 +94,5 @@
     </div>
 
 </body>
-<script src="js/modal.js"></script>
+
 </html>
