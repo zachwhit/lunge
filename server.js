@@ -115,7 +115,7 @@ app.post('/fetchRegimeCategory', async (req,res) => {
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
-    var data = [req.body.name, req.body.price, req.body.description, req.body.category, req.body.tags, req.body.goals]
+    var data = [req.body.name, req.body.category, req.body.description, req.body.goals, req.body.tags, req.body.price]
 
   userConnector.addRegime(data);
   res.render('sellerPage.hbs');
