@@ -84,7 +84,7 @@
         }
 
         #advSearch{
-            margin-top: 17px;
+            margin-top: 10px;
         }
 
         /* Modal Styling */
@@ -163,7 +163,7 @@
                         <input id="sellerButton" class="navButtons" type="submit" value="My Page" />
                     </form>
 
-                    <button id="signInButton" class="navButtons">Sign In/Register</button>
+                    <button id="signInButton" class="navButtons">Apply to become a verified seller </button>
 
                 </div>  
             
@@ -183,30 +183,12 @@
             <div id="loginBoxModal">
                   <div id="loginBox" class="loginBox">
                     <div class="loginBoxInternal">
-                      <h2>Sign In to the Marketplace</h2>
+                     
                       <div class="submissionForm">
-
-                        <form class="form-horizontal" action="/userSignIn" method="POST" >
-                          <div class="form-group">
-                            <label class="control-label col-sm-2">Email: </label>
-                            <div id="emailInput" class="col-sm-10">
-                              <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-                            </div> 
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label col-sm-2">Password: </label>
-                            <div id="passwordInput" class="col-sm-10">
-                              <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-                            </div>
-                          </div>
-
-                          <div class="text-center">
-                            <button class="navButtons" type="submit" value="Submit" >Sign In</button>
-                          </div>
-                        </form>
-                        <p><b>Don't have a user account?</b></p>
+                       
+                       
                         <div class="createAccountButtons">
-                            <input class="navButtons" type="button" onclick="location.href='/userCreation';" value ="Create a User Account" />
+                            
                             <input class="navButtons" type="button" onclick="location.href='/sellerRegister';" value="Become a Verified Seller"/>
                         </div>
                       </div>

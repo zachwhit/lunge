@@ -61,7 +61,7 @@ const addRegime = (inputArray) => {
     if (err) throw err;
     // db.end();
     });
-    
+
 }
 
 const userSignIn = (email, password) => {
@@ -81,6 +81,7 @@ const userSignIn = (email, password) => {
     });
 }
 
+
 const fetchRegimeCategory = (category) => {
     return new Promise((resolve, reject) => {
     const db = mysql.createConnection({
@@ -97,6 +98,7 @@ const fetchRegimeCategory = (category) => {
         db.end();
     });
 }
+
 
 //code to add in later
 
@@ -163,4 +165,5 @@ module.exports = {
   addRegime,
   userSignIn,
   fetchRegimeCategory,
+
 };

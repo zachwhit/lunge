@@ -50,6 +50,13 @@ div .col{
     justify-content: center; 
 }
 
+.mybox2{ 
+    display:flex; 
+    align-items: center; 
+    justify-content: center; 
+	padding: 250px 0;
+}
+
 .regimePic {
   object-fit: cover;
   height: 225px;
