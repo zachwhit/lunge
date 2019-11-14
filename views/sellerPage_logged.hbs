@@ -13,9 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/style/regimePage.css">
-    <script src="js/modal.js"></script>
-    <script src="js/csvDownload.js"></script>
+    <link rel="stylesheet" href="/style/sellerPage.css">
 </head>
 
 <body>
@@ -33,7 +31,7 @@
 
             <div>
                 <form action="/account" method="get">
-                    <input type="submit" value="Edit" />
+                    <input class="sellerPageButtons" type="submit" value="Edit" />
                 </form>
             </div>
 
@@ -42,29 +40,38 @@
                 
 
                 <div id="regimes">
-                    <img id="profilePic" src="imgs/file_image.png" height="200" width="200">
+                    <img id="profilePic" src="imgs/placeholderUser.png" height="200" width="200">
                 </div>
                 
 
 
                 <div id="nameDescrip">
-                    <p>Regime Title</p>
-                    <p>Regime Description</p>
+                    <p>Profile Name</p>
+                    <p>Profile Description</p>
                 </div>
             </div>   
 
-            <a href='#' onclick='downloadCSV({ filename: "regime.csv" });'>Export as CSV</a>
+              
               
             <div id="structure">
                 <div id="lists">
-                    Other Regimes
+                    My Regimes
                     <div id="regimes">
                         <img src="imgs/file_image.png" height="100" width="100">
                         <img src="imgs/file_image.png" height="100" width="100">
                         <img src="imgs/file_image.png" height="100" width="100">
                     </div>
-                    
-                    
+                    Unpublished / Drafts
+                    <div id="drafts">
+                        <img src="imgs/file_image.png" height="100" width="100">
+                        <img src="imgs/file_image.png" height="100" width="100">
+                        <img src="imgs/file_image.png" height="100" width="100">
+                    </div>
+                    <div>
+                      <form action="/regimeCreation" method="get">
+                          <input class="sellerPageButtons" type="submit" value="Create New Regime" />
+                      </form>
+                  </div>
                 </div>
 
                 <div id="feedback">
@@ -94,5 +101,5 @@
     </div>
 
 </body>
-
+<script src="js/modal.js"></script>
 </html>
