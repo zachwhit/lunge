@@ -100,7 +100,6 @@ const fetchRegimeCategory = (category) => {
 }
 
 
-
 //code to add in later
 
 /*
@@ -166,5 +165,5 @@ module.exports = {
   addRegime,
   userSignIn,
   fetchRegimeCategory,
-  
+
 };
