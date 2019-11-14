@@ -24,6 +24,19 @@ const {
 
 const IN_PROD = NODE_ENV === 'production'
 
+app.use(session({
+    name: SESS_NAME,
+    resave: false,
+    saveUninitialized: false,
+    secret: SESS_SECRET,
+    cookie: {
+        maxAge:  SESS_LIFETIME,
+        sameSite: true,
+        secure: IN_PROD
+    }
+}))
+
+
 /*
 const db = mysql.createConnection({
         host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
@@ -65,17 +78,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(session({
-    name: SESS_NAME,
-    resave: false,
-    saveUninitialized: false,
-    secret: SESS_SECRET,
-    cookie: {
-        maxAge:  SESS_LIFETIME,
-        sameSite: true,
-        secure: IN_PROD
-    }
-}))
+
 
 const redirectLogin = (req, res, next) => {
     if (!req.session.userId) {
