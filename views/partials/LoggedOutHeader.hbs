@@ -160,7 +160,6 @@
                 <button id="advSearch" class="navButtons">Advanced Search</button>
                 <div id="menuContainerRight">
                     <form action="/sellerPage" id="getHome" class="menuItem" method="get">
-                        <input id="sellerButton" class="navButtons" type="submit" value="My Page" />
                     </form>
 
                     <button id="signInButton" class="navButtons">Sign In/Register</button>
@@ -186,11 +185,12 @@
                       <h2>Sign In to the Marketplace</h2>
                       <div class="submissionForm">
                         <form class="form-horizontal" action="/login" method="POST" >
-                        
+                          
                           <div class="text-center">
                             <button class="navButtons" type="submit" value="Submit" >Sign In</button>
                           </div>
                         </form>
+						
                         <p><b>Don't have a user account?</b></p>
                         <div class="createAccountButtons">
                             <input class="navButtons" type="button" onclick="location.href='/userCreation';" value ="Create a User Account" />

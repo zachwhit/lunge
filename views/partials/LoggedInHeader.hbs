@@ -163,8 +163,10 @@
                         <input id="sellerButton" class="navButtons" type="submit" value="My Page" />
                     </form>
 
-                    <button id="signInButton" class="navButtons">Sign In/Register</button>
 
+					<form method="post" action="/logout">
+						<button type="submit" class="navButtons" id="signInButton">Sign out</button>
+                    </form>
                 </div>  
             
             </div>
@@ -184,13 +186,14 @@
                   <div id="loginBox" class="loginBox">
                     <div class="loginBoxInternal">
                       <h2>Sign In to the Marketplace</h2>
-                      <div class="submissionForm">
+					   <div class="submissionForm">
                         <form class="form-horizontal" action="/login" method="POST" >
-                        
+                  
                           <div class="text-center">
                             <button class="navButtons" type="submit" value="Submit" >Sign In</button>
                           </div>
                         </form>
+						
                         <p><b>Don't have a user account?</b></p>
                         <div class="createAccountButtons">
                             <input class="navButtons" type="button" onclick="location.href='/userCreation';" value ="Create a User Account" />
