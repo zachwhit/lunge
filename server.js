@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 
-
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
 
@@ -125,7 +124,6 @@ app.get('/', (request, response) => {
 	}
 });
 
-
 app.get('/market_logged', (request, response) => {
 	if (request.session.userId) {
 		response.render('market_logged.hbs')
@@ -158,7 +156,7 @@ app.get('/login', redirectHome, (request, response) => {
 // was register.hbs didnt add anything form login to usercreation yet
 app.get('/userCreation', redirectHome, (request, response) => {
 	response.render('userCreation.hbs')
-  
+});
 
 app.get('/userCreation_logged', (request, response) => {
 	if (req.session.userId) {
@@ -290,15 +288,17 @@ app.get('/verified', (request, response) => {
 app.listen(process.env.PORT || 3000, () => {
 });
 
-// User Login
+// User Login 
 app.post('/userSignIn', async (req,res) => {
   let user = await userConnector.userSignIn(req.body.email, req.body.password);
+  console.log(user)
   firstname = user[0]["firstname"];
   res.render('signInSuccess.hbs', 
     {
      name: firstname,
   });
 });
+
 
 // User Creation INSERT
 app.post('/userCreation',function(req,res){
@@ -342,7 +342,7 @@ app.post('/fetchRegimeCategory', async (req,res) => {
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
-    var data = [req.body.name, req.body.category, req.body.description, req.body.goals, req.body.tags, req.body.price]
+    var data = [req.body.name, req.body.price, req.body.description, req.body.category, req.body.tags, req.body.goals]
 
   userConnector.addRegime(data);
   res.render('sellerPage.hbs');
