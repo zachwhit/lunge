@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/style/marketplaceStyle.css">
+    <link rel="stylesheet" href="/style/categoryPage.css">
     <style>#imageBox{
       height: 500px;
       width: 500px;
@@ -24,44 +24,35 @@
     
 <body>
 
-<div class="header">
-
+  <div class="header">
   </div>
 
   <div class="background">
   </div>
 
-    </div>
-  </nav>
+  <section id="pageContent">
+    <main role="main">
+      <center>
+        <div class="mybox">
+          
+            <img class="regimePic" src="imgs/temp/{{image}}.jfif">
+          
+          
 
-<section id="pageContent">
-      <main role="main">
-        <center>
-          <div class="mybox">
-            <div>
-              <div><img class="regimePic" src="imgs/temp/{{image}}.jfif"></div>
-              <ul>
-                {{#each regimes}}
-                  
-                  <h1>{{name}}</h1>
-                  <h2>{{description}}</h2>
-                  <h2>Goals: {{goals}}</h2>
-                  <h2>Category: {{category}}</h2>
-                  <h2>Tags: {{tags}}</h2>
-                  <h2>${{price}}</h2>
-                {{/each}}
-              </ul>
-            </div>
-          </div>
-        </center>
-      </main>
-    </section>
-  
-</div>
+            <h1>{{category}} Regimes</h1>  
+              {{#each regimes}}
+                  <form class="form-horizontal" action="/fetchSingleRegime" method="POST" >
+                    <input class="listButtons" type="submit" name="regime" value="{{name}}">
+                  </form>
+              {{/each}}
+            
+          
+        </div>
+      </center>
+    </main>
+  </section>
     
-        
-        
-
+    
 
 </body>
 </html>
