@@ -327,7 +327,9 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   goals = regimes[0]["goals"];
   image = regimes[0]["category"];
   regimesObj = JSON.stringify(regimes);
-  res.render('categoryPage.hbs', 
+  
+  if (req.session.userId) {
+		res.render('categoryPage_logged.hbs',
     {
       name: name,
       price: price,
@@ -338,6 +340,25 @@ app.post('/fetchRegimeCategory', async (req,res) => {
       image: image,
       regimes: regimes
     });
+  }
+  else {
+	  res.render('categoryPage.hbs',
+	  {
+		  name: name,
+		  price: price,
+		  description: description,
+		  category: category,
+		  tags: tags,
+		  goals: goals,
+		  image: image,
+		  regimes: regimes
+    });
+		  
+	  
+	  
+  }
+  
+  
 });
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){

@@ -34,18 +34,23 @@
     </div>
   </nav>
 
-    <section id="pageContent">
+<section id="pageContent">
       <main role="main">
         <center>
           <div class="mybox">
             <div>
-              <div><img class="regimePic" src="imgs/temp/{{image}}"></div>
-              <h1>{{name}}</h1>
-              <h2>{{description}}</h2>
-              <h2>Goals: {{goals}}</h2>
-              <h2>Category: {{categorytype}}</h2>
-              <h2>Tags: {{tags}}</h2>
-              <h2>${{price}}</h2>
+              <div><img class="regimePic" src="imgs/temp/{{image}}.jfif"></div>
+              <ul>
+                {{#each regimes}}
+                  
+                  <h1>{{name}}</h1>
+                  <h2>{{description}}</h2>
+                  <h2>Goals: {{goals}}</h2>
+                  <h2>Category: {{category}}</h2>
+                  <h2>Tags: {{tags}}</h2>
+                  <h2>${{price}}</h2>
+                {{/each}}
+              </ul>
             </div>
           </div>
         </center>
