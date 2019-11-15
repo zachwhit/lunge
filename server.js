@@ -4,13 +4,34 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
+const session = require('express-session')
+const MYSQLStore = require('express-mysql-session')(session);
 
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
 
+var options = {
+	host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+	user     : 'admin',
+	password : 'o0SgT30xueqiajnVsPaT',
+	database : 'lunge',
+	port: 3306
+};
+ 
+var sessionStore = new MySQLStore(options);
 
+app.use(session({
+    key: 'session_cookie_name',
+	secret: 'session_cookie_secret',
+	store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+      
+}));
 
-const session = require('express-session')
+var connection = mysql.createConnection(options);
+var sessionStore = new MySQLStore({}
+
 
 const TWO_HOURS = 1000 * 60 * 60 * 1
 
@@ -65,17 +86,6 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(session({
-    name: SESS_NAME,
-    resave: false,
-    saveUninitialized: false,
-    secret: SESS_SECRET,
-    cookie: {
-        maxAge:  SESS_LIFETIME,
-        sameSite: true,
-        secure: IN_PROD
-    }
-}))
 
 const redirectLogin = (req, res, next) => {
     if (!req.session.userId) {
