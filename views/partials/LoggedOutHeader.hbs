@@ -12,7 +12,7 @@
         #menuContainerLeft {
             display: inline; 
             float: left;  
-            margin-top: 5px;
+           
             margin-left: 10px;
             margin-right: 10px;
         }
@@ -20,7 +20,7 @@
         #menuContainerRight {
             display: inline;  
             float: right;  
-            margin-top: 10px;
+            margin-top: 5px;
             margin-left: 10px;
             margin-right: 10px;
         }
@@ -84,7 +84,7 @@
         }
 
         #advSearch{
-            margin-top: 17px;
+            
         }
 
         /* Modal Styling */
@@ -145,20 +145,22 @@
         <div class="container-fluid">
 
             <div id="navbar">
-                
+
                 <div id="menuContainerLeft">
                     
-                    <form  method="get" >
-                        <a href="/"><img id="logoImg" src="imgs/lunge.png"></a>
+                    <form method="get">
+                      <a href="/"><img id="logoImg" src="imgs/lunge.png"></a>
                         <input id="navSearch" placeholder="Quick Search...">
                         <button type="submit" id="navSubmit" class="navButtons">
                             <span class="glyphicon glyphicon-search" style="color:white"></span>
                         </button> 
+                        <button id="advSearch" class="navButtons">Advanced Search</button>
                     </form>
                     
                 </div> 
-                <button id="advSearch" class="navButtons">Advanced Search</button>
+                
                 <div id="menuContainerRight">
+
                     <form action="/sellerPage" id="getHome" class="menuItem" method="get">
                     </form>
 

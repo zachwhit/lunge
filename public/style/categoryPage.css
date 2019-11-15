@@ -12,26 +12,6 @@ div .col{
   background-color: gray;
 }
 
-
-.wrapper{
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-
-.innerwrap {
-  display: table-row;
-  height: 100%;
-}
-
-.footer {
-  display: table-row;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-}
-
 .background {
   background: url(../imgs/bg.jpg);
   position: fixed;
@@ -43,37 +23,56 @@ div .col{
   background-size: 150%;
 }
 
-.well {
-  margin: auto;
-  width: 80%;
-  background-color: rgba(200, 200, 200, 0.5);
-  padding-bottom: 5%;
+.grid-container {
+      display: grid;
+      width: 1920px;
+      
+      align-content: space-around;
+      left: 50%;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: 300px 300px 300px;
+      grid-gap: 50px;
+      background-color: rgba(200, 200, 200, 0.25);
+      padding: 15px 15px;
+      margin: 10px;
+}
+        
+.grid-container > div {
+  background-color: #4f8f9e;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
 
-h4 {font-size: 16px;}
+.mybox{ 
+    display:block; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: rgba(200, 200, 200, 0.25);
+    padding: 20px 0;
 }
 
-#logoImg {
-    height:5vh;
+.regimePic {
+  object-fit: cover;
+  height: 225px;
+  width: 225px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
-.container {
-	position:absolute;
-	top:10%;
-	left:40%;
-	clear: both;
+.regimeList {
+  padding: 5px;
+  text-align: center;
 }
 
-.container input {
-	width:100%;
-	clear: both;
+.regimeItem {
+  font-size: 20px;
 }
 
-.regimeFormButtons {
+.listButtons {
     display: inline;
-    margin: 0px 10px;
     padding: 10px 18px;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.43;
     color: white;
     background-color: #7AC043;
@@ -85,16 +84,11 @@ h4 {font-size: 16px;}
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin: 2px;
 }
 
-.regimeFormButtons:hover {
+.listButtons:hover {
     background-color: #a0e36f;
     transition: 0.3s;
     border: 1px solid #a0e36f;
-}
-
-.dropDownButtons{
-  background-color: rgba(0,0,0,0);
-  border-color: rgba(0,0,0,0);
-  padding: 10px 0px; 
 }
