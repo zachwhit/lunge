@@ -322,23 +322,23 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   name = regimes[0]["name"];
   price = regimes[0]["price"];
   description = regimes[0]["description"];
-  categorytype = regimes[0]["category"];
+  category = regimes[0]["category"];
   tags = regimes[0]["tags"];
   goals = regimes[0]["goals"];
-  image = regimes[0]["category"] + ".jfif";
+  image = regimes[0]["category"];
   regimesObj = JSON.stringify(regimes);
   res.render('categoryPage.hbs', 
     {
       name: name,
       price: price,
       description: description,
-      categorytype: categorytype,
+      category: category,
       tags: tags,
       goals: goals,
       image: image,
+      regimes: regimes
     });
 });
-
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
@@ -353,7 +353,7 @@ app.get('/fetchRegimeCategory', (request, response) => {
 		response.render('categoryPage_logged.hbs')
 	}
 	else {
-		response.render('cateogoryPage.hbs')
+		response.render('categoryPage.hbs')
 	}
 });
 
@@ -362,7 +362,7 @@ app.get('/fetchRegimeCategory_logged', (request, response) => {
 		response.render('categoryPage_logged.hbs')
 	}
 	else {
-		response.render('cateogoryPage.hbs')
+		response.render('categoryPage.hbs')
 	}
 });
 
