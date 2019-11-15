@@ -4,9 +4,9 @@ const exphbs = require('express-handlebars');
 
 
     const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
