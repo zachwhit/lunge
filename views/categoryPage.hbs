@@ -42,13 +42,17 @@
               <div><img class="regimePic" src="imgs/temp/{{image}}.jfif"></div>
               <ul>
                 {{#each regimes}}
-                  
-                  <h1>{{name}}</h1>
-                  <h2>{{description}}</h2>
-                  <h2>Goals: {{goals}}</h2>
-                  <h2>Category: {{category}}</h2>
-                  <h2>Tags: {{tags}}</h2>
-                  <h2>${{price}}</h2>
+                  <form class="form-horizontal" action="/fetchSingleRegimeCategory" method="POST" >
+                    <input id="regimeButton" type="submit" name="regime" value="{{name}}">
+                    
+                      <h1>{{name}}</h1>
+                      <h2>{{description}}</h2>
+                      <h2>Goals: {{goals}}</h2>
+                      <h2>Category: {{category}}</h2>
+                      <h2>Tags: {{tags}}</h2>
+                      <h2>${{price}}</h2>
+                    </input>
+                  </form>
                 {{/each}}
               </ul>
             </div>

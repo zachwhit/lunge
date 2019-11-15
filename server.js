@@ -339,6 +339,29 @@ app.post('/fetchRegimeCategory', async (req,res) => {
       regimes: regimes
     });
 });
+
+app.post('/fetchSingleRegime', async (req,res) => {
+  let regimes = await userConnector.fetchSingleRegime(req.body.name);
+  name = regimes[0]["name"];
+  price = regimes[0]["price"];
+  description = regimes[0]["description"];
+  category = regimes[0]["category"];
+  tags = regimes[0]["tags"];
+  goals = regimes[0]["goals"];
+  image = regimes[0]["category"];
+  regimesObj = JSON.stringify(regimes);
+  res.render('regimePage.hbs', 
+    {
+      name: name,
+      price: price,
+      description: description,
+      category: category,
+      tags: tags,
+      goals: goals,
+      image: image
+    });
+});
+
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 

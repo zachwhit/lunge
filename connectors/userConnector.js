@@ -99,6 +99,23 @@ const fetchRegimeCategory = (category) => {
     });
 }
 
+const fetchSingleRegime = (name) => {
+    return new Promise((resolve, reject) => {
+    const db = mysql.createConnection({
+        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        user     : 'admin',
+        password : 'o0SgT30xueqiajnVsPaT',
+        database : 'lunge',
+        port: 3306
+    });
+    db.connect();      
+        db.query("SELECT * FROM regime WHERE regime.name = ('"+name+"')", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+        db.end();
+    });
+}
+
 
 
 //code to add in later
@@ -166,5 +183,6 @@ module.exports = {
   addRegime,
   userSignIn,
   fetchRegimeCategory,
+  fetchSingleRegime,
   
 };
