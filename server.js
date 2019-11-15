@@ -327,7 +327,9 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   goals = regimes[0]["goals"];
   image = regimes[0]["category"];
   regimesObj = JSON.stringify(regimes);
-  res.render('categoryPage.hbs', 
+  
+  if (req.session.userId) {
+		res.render('categoryPage_logged.hbs',
     {
       name: name,
       price: price,
@@ -338,7 +340,49 @@ app.post('/fetchRegimeCategory', async (req,res) => {
       image: image,
       regimes: regimes
     });
+  }
+  else {
+	  res.render('categoryPage.hbs',
+	  {
+		  name: name,
+		  price: price,
+		  description: description,
+		  category: category,
+		  tags: tags,
+		  goals: goals,
+		  image: image,
+		  regimes: regimes
+    });
+		  
+	  
+	  
+  }
+  
+  
 });
+
+app.post('/fetchSingleRegime', async (req,res) => {
+  let regimes = await userConnector.fetchSingleRegime(req.body.name);
+  name = regimes[0]["name"];
+  price = regimes[0]["price"];
+  description = regimes[0]["description"];
+  category = regimes[0]["category"];
+  tags = regimes[0]["tags"];
+  goals = regimes[0]["goals"];
+  image = regimes[0]["category"];
+  regimesObj = JSON.stringify(regimes);
+  res.render('regimePage.hbs', 
+    {
+      name: name,
+      price: price,
+      description: description,
+      category: category,
+      tags: tags,
+      goals: goals,
+      image: image
+    });
+});
+
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
