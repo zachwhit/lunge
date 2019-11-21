@@ -362,7 +362,7 @@ app.post('/fetchRegimeCategory', async (req,res) => {
 });
 
 app.post('/fetchSingleRegime', async (req,res) => {
-  let regimes = await userConnector.fetchSingleRegime(req.body.name);
+  let regimes = await userConnector.fetchSingleRegime(req.body.regime);
   name = regimes[0]["name"];
   price = regimes[0]["price"];
   description = regimes[0]["description"];
