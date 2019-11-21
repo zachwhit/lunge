@@ -4,9 +4,9 @@ const exphbs = require('express-handlebars');
 
 const addUser = (inputArray) => {
     const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
@@ -44,9 +44,9 @@ main().catch(console.error);
 
 const addRegime = (inputArray) => {
     const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
@@ -67,9 +67,9 @@ const addRegime = (inputArray) => {
 const userSignIn = (email, password) => {
     return new Promise((resolve, reject) => {
     const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
@@ -85,14 +85,31 @@ const userSignIn = (email, password) => {
 const fetchRegimeCategory = (category) => {
     return new Promise((resolve, reject) => {
     const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
     db.connect();      
         db.query("SELECT * FROM regime WHERE regime.category = ('"+category+"')", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+        db.end();
+    });
+}
+
+const fetchSingleRegime = (name) => {
+    return new Promise((resolve, reject) => {
+    const db = mysql.createConnection({
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
+        user     : 'admin',
+        password : 'hDCKykvSCmVhra96',
+        database : 'lunge',
+        port: 3306
+    });
+    db.connect();      
+        db.query("SELECT * FROM regime WHERE regime.name = ('"+name+"')", (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
         db.end();
@@ -166,5 +183,6 @@ module.exports = {
   addRegime,
   userSignIn,
   fetchRegimeCategory,
+  fetchSingleRegime,
   
 };

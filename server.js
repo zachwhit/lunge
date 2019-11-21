@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 
+
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
 
@@ -53,29 +54,53 @@ for (i = 0, len = result.length, text = ""; i < len; i++) {
 
 
 
-const users = [
-    {id: 1, name: 'Alex', email: 'alex@alex.ca', password: '123456' },
-    {id: 2, name: 'brendon', email: 'btang@gmail.com', password: '123456' },
-    {id: 3, name: 'tang', email: 'tang@gmail.com', password: '123456' }
-]
 
 
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 app.use(session({
-    name: SESS_NAME,
-    resave: false,
-    saveUninitialized: false,
-    secret: SESS_SECRET,
-    cookie: {
-        maxAge:  SESS_LIFETIME,
-        sameSite: true,
-        secure: IN_PROD
-    }
-}))
+	secret:'pig123',
+	resave: true,
+	saveUninitialized: true
+    
+}));
+
+
+const db = mysql.createConnection({
+        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        user     : 'admin',
+        password : 'o0SgT30xueqiajnVsPaT',
+        database : 'lunge',
+        port: 3306
+    });
+	
+	
+//
+app.post('/test', function(request, response) {
+	var email = request.body.email;
+	var password = request.body.password;
+	if (email && password) {
+		db.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.email = email;
+				response.redirect('/market_logged');
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+
+
 
 const redirectLogin = (req, res, next) => {
     if (!req.session.userId) {
@@ -116,7 +141,7 @@ app.get('/', (request, response) => {
 */
 // was main.hbs
 app.get('/', (request, response) => {
-	if (request.session.userId) {
+	if (request.session.loggedin) {
 		response.render('market_logged.hbs')
 	}
 	else {
@@ -125,7 +150,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/market_logged', (request, response) => {
-	if (request.session.userId) {
+	if (request.session.loggedin) { 
 		response.render('market_logged.hbs')
 	}
 	else {
@@ -140,7 +165,7 @@ app.get('/signInSuccess', redirectLogin, (request, response) => {
 });
 
 app.get('/signInSuccess_logged', (request, response) => {
-	if (req.session.userId) {
+	if (request.session.loggedin) {
 	response.render('signInSuccess_logged.hbs')
 	}
 });
@@ -159,7 +184,7 @@ app.get('/userCreation', redirectHome, (request, response) => {
 });
 
 app.get('/userCreation_logged', (request, response) => {
-	if (req.session.userId) {
+	if (request.session.loggedin) {
 	response.render('userCreation_logged.hbs')
 	}
 });
@@ -237,7 +262,7 @@ app.get('/account', (request, response) => {
 
 
 app.get('/sellerPage_logged', (request, response) => {
-	if (request.session.userId) {
+	if (request.session.loggedin) {
 		response.render('sellerPage_logged.hbs')
 	}
 	else {
@@ -246,7 +271,7 @@ app.get('/sellerPage_logged', (request, response) => {
 });
 
 app.get('/sellerPage', (request, response) => {
-	if (request.session.userId) {
+	if (request.session.loggedin) {
 		response.render('sellerPage_logged.hbs')
 	}
 	else {
@@ -328,7 +353,7 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   image = regimes[0]["category"];
   regimesObj = JSON.stringify(regimes);
   
-  if (req.session.userId) {
+  if (req.session.loggedin) {
 		res.render('categoryPage_logged.hbs',
     {
       name: name,
@@ -360,6 +385,29 @@ app.post('/fetchRegimeCategory', async (req,res) => {
   
   
 });
+
+app.post('/fetchSingleRegime', async (req,res) => {
+  let regimes = await userConnector.fetchSingleRegime(req.body.regime);
+  name = regimes[0]["name"];
+  price = regimes[0]["price"];
+  description = regimes[0]["description"];
+  category = regimes[0]["category"];
+  tags = regimes[0]["tags"];
+  goals = regimes[0]["goals"];
+  image = regimes[0]["category"];
+  regimesObj = JSON.stringify(regimes);
+  res.render('regimePage.hbs', 
+    {
+      name: name,
+      price: price,
+      description: description,
+      category: category,
+      tags: tags,
+      goals: goals,
+      image: image
+    });
+});
+
 // Regime Creation INSERT
 app.post('/regimeCreation',function(req,res){
 
@@ -369,23 +417,6 @@ app.post('/regimeCreation',function(req,res){
   res.render('sellerPage.hbs');
 });
 
-app.get('/fetchRegimeCategory', (request, response) => {
-	if (request.session.userId) {
-		response.render('categoryPage_logged.hbs')
-	}
-	else {
-		response.render('categoryPage.hbs')
-	}
-});
-
-app.get('/fetchRegimeCategory_logged', (request, response) => {
-	if (request.session.userId) {
-		response.render('categoryPage_logged.hbs')
-	}
-	else {
-		response.render('categoryPage.hbs')
-	}
-});
 
 
 
