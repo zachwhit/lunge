@@ -1,31 +1,3 @@
-
-var regimeData = [
-    {
-        Title: "Workout Regime",
-        Category: "Fitness",
-        Description: "Become the strongest",
-        Goals: "Eat better",
-        Tags: "Exercise",
-        Price: "$2.00"
-    },
-    {
-        Title: "Ghost Hunting",
-        Category: "Spiritual",
-        Description: "Hunt the spectres",
-        Goals: "Track ghosties",
-        Tags: "Paranormal",
-        Price: "$5.00"
-    },
-    {
-        Title: "Cook Better",
-        Category: "Cooking",
-        Description: "Cook some tasties",
-        Goals: "Eat better",
-        Tags: "Foods",
-        Price: "$1.00"
-    },
-];
-
 function convertArrayOfObjectsToCSV(args) {
     var result, ctr, keys, columnDelimiter, lineDelimiter, data;
 
@@ -58,14 +30,24 @@ function convertArrayOfObjectsToCSV(args) {
 }
 
 function downloadCSV(args) {
-    var data, filename, link;
+    var data, filename, link, name, category, description, goals, tags, price;
+
+    var regimeData = [
+    {
+        Title: args.name,
+        Category: args.category,
+        Description: args.description,
+        Goals: args.goals,
+        Tags: args.tags,
+        Price: args.price
+    }];
 
     var csv = convertArrayOfObjectsToCSV({
         data: regimeData
     });
     if (csv == null) return;
 
-    filename = args.filename || 'export.csv';
+    filename = args.name + ".csv" || 'export.csv';
 
     if (!csv.match(/^data:text\/csv/i)) {
         csv = 'data:text/csv;charset=utf-8,' + csv;

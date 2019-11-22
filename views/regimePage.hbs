@@ -31,29 +31,26 @@
 
       <div class="shell">
 
-            <div>
-                <form action="/account" method="get">
-                    <input type="submit" value="Edit" />
-                </form>
-            </div>
-
             <div id="sellerProfile">
                 
                 
 
                 <div id="regimes">
-                    <img id="profilePic" src="imgs/file_image.png" height="200" width="200">
+                  <img id="profilePic" src="imgs/temp/{{image}}.jfif" height="200" width="200">
                 </div>
                 
 
 
                 <div id="nameDescrip">
-                    <p>{{name}}</p>
-                    <p>{{description}}</p>
+                  <h1><b>{{name}}</b> - ${{price}}</h1>
+                  <h2>{{description}}</h2>
+                  <h3>Category: <i>{{category}}</i></h3>
+                  <h3>Tags: <i>{{tags}}</i></h3>
+                  <h3>Goals: <i>{{goals}}</i></h3>
                 </div>
             </div>   
 
-            <a href='#' onclick='downloadCSV({ filename: "regime.csv" });'>Export as CSV</a>
+            <a href='#' onclick='downloadCSV({ name: "{{name}}", description: "{{description}}", category: "{{category}}", tags: "{{tags}}", goals: "{{goals}}", price: "{{price}}" });'>Export as CSV</a>
               
             <div id="structure">
                 <div id="lists">
