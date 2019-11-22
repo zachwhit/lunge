@@ -4,63 +4,15 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
-
+const session = require('express-session')
 
 // Connectors for mysql functions
 const userConnector = require('./connectors/userConnector');
-
-
-
-const session = require('express-session')
-
-const TWO_HOURS = 1000 * 60 * 60 * 1
-
-const {
-    NODE_ENV = 'development',
-
-    SESS_NAME = 'sid',
-    SESS_SECRET = 'ssh!quiet,it\'asecret!',  //replace we actually value 
-    SESS_LIFETIME = TWO_HOURS
-} = process.env
-
-const IN_PROD = NODE_ENV === 'production'
-
-/*
-const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
-        user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
-        database : 'lunge',
-        port: 3306
-    });
-	function a(){
-    db.connect((err) => {
-    if(err) throw err;
-	db.query("SELECT id, firstname, email, password from user", function (err, result) {
-    if (err) throw err;
-	var result;
-    var i, len, text;
-for (i = 0, len = result.length, text = ""; i < len; i++) {
-  text += result[i] + "<br>";
-  users = result[i]
-  //console.log(users);
-}
-	
-  });
-});
-	}
-*/
-
-
-
-
-
 
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 app.use(session({
 	secret:'pig123',
@@ -69,17 +21,14 @@ app.use(session({
     
 }));
 
-
 const db = mysql.createConnection({
-        host     : 'lunge-database.ch0uzb2cuoae.us-west-2.rds.amazonaws.com',
+        host     : 'lunge-marketplace.cbimyqtp80cn.us-west-2.rds.amazonaws.com',
         user     : 'admin',
-        password : 'o0SgT30xueqiajnVsPaT',
+        password : 'hDCKykvSCmVhra96',
         database : 'lunge',
         port: 3306
     });
 	
-	
-//
 app.post('/test', function(request, response) {
 	var email = request.body.email;
 	var password = request.body.password;
@@ -90,17 +39,14 @@ app.post('/test', function(request, response) {
 				request.session.email = email;
 				response.redirect('/market_logged');
 			} else {
-				response.send('Incorrect Username and/or Password!');
+				response.redirect('/login');
 			}			
 			response.end();
 		});
 	} else {
-		response.send('Please enter Username and Password!');
 		response.end();
 	}
 });
-
-
 
 const redirectLogin = (req, res, next) => {
     if (!req.session.loggedin) {
@@ -118,28 +64,11 @@ const redirectHome = (req, res, next) => {
     }
 }
 
-app.use((req, res, next) => {
-    const { userId } = req.session
-    if (userId) {
-        res.locals.user = users.find(
-            user => user.id === userId
-        )
-    }
-    next()
-})
-
-
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + '/views/partials');
 
-/*
-app.get('/', (request, response) => {
-	response.render('market.hbs')
-});
-*/
-// was main.hbs
 app.get('/', (request, response) => {
 	if (request.session.loggedin) {
 		response.render('market_logged.hbs')
@@ -158,9 +87,7 @@ app.get('/market_logged', (request, response) => {
 	}
 });
 
-// was home.hbs
 app.get('/signInSuccess', redirectLogin, (request, response) => {
-	const { user } = response.locals
 	response.render('signInSuccess.hbs')
 });
 
@@ -170,15 +97,10 @@ app.get('/signInSuccess_logged', (request, response) => {
 	}
 });
 
-
-// was login.hbs didnt add anything form login to market yet
 app.get('/login', redirectHome, (request, response) => {
 	response.render('login.hbs')
 });
 
-
-
-// was register.hbs didnt add anything form login to usercreation yet
 app.get('/userCreation', redirectHome, (request, response) => {
 	response.render('userCreation.hbs')
 });
@@ -189,10 +111,6 @@ app.get('/userCreation_logged', (request, response) => {
 	}
 });
 
-
-
-
-// was login, now marketplace 
 app.post('/login', redirectHome, (req, res) => {
     const {email, password } = req.body
 
@@ -208,13 +126,11 @@ app.post('/login', redirectHome, (req, res) => {
 				console.log(password)
             }
     }
-	console.log(email)
-	console.log(password)
+	
 
     res.redirect('/login')
 })
 
-// 
 app.post('/register', redirectHome, (req, res) => {
     const { name, email, password } = req.body
 
@@ -254,12 +170,9 @@ app.post('/logout', redirectLogin, (req, res) => {
     })
 })
 
-
 app.get('/account', (request, response) => {
 	response.render('account.hbs')
 });
-
-
 
 app.get('/sellerPage_logged', (request, response) => {
 	if (request.session.loggedin) {
@@ -305,9 +218,6 @@ app.get('/regimeCreation', (request, response) => {
 app.get('/verified', (request, response) => {
     response.render('verified.hbs')
 });
-
-
-
 
 //Dynamic for Heroku, default 3000 for local hosting
 app.listen(process.env.PORT || 3000, () => {
@@ -423,8 +333,3 @@ app.post('/regimeCreation',function(req,res){
   userConnector.addRegime(data);
   res.render('sellerPage.hbs');
 });
-
-
-
-
-
