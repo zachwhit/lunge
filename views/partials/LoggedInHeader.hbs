@@ -18,7 +18,7 @@
         }
 
         #menuContainerRight {
-            display: inline;  
+            display: inline-block;  
             float: right;  
             margin-top: 5px;
             margin-left: 10px;
@@ -84,7 +84,7 @@
         }
 
         #advSearch{
-            margin-top: 17px;
+         
         }
 
         /* Modal Styling */
@@ -159,14 +159,14 @@
 
                     
                 </div> 
-                <button id="advSearch" class="navButtons">Advanced Search</button>
+                
                 <div id="menuContainerRight">
                     <form action="/sellerPage" id="getHome" class="menuItem" method="get">
                         <input id="sellerButton" class="navButtons" type="submit" value="My Page" />
                     </form>
 
 
-					<form method="post" action="/logout">
+					<form method="post" action="/logout" class="menuItem">
 						<button type="submit" class="navButtons" id="signInButton">Sign out</button>
                     </form>
                 </div>  
