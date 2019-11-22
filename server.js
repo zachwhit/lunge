@@ -103,7 +103,7 @@ app.post('/test', function(request, response) {
 
 
 const redirectLogin = (req, res, next) => {
-    if (!req.session.userId) {
+    if (!req.session.loggedin) {
         res.redirect('/login')
     } else {
         next()
@@ -111,7 +111,7 @@ const redirectLogin = (req, res, next) => {
 }
 
 const redirectHome = (req, res, next) => {
-    if (req.session.userId) {
+    if (req.session.loggedin) {
         res.redirect('/market_logged')
     } else {
         next()
@@ -249,7 +249,7 @@ app.post('/logout', redirectLogin, (req, res) => {
         if(err) {
             return res.redirect('/home')
         }
-        res.clearCookie(SESS_NAME)
+        res.clearCookie('connect.sid')
         res.redirect('/')
     })
 })
@@ -396,7 +396,9 @@ app.post('/fetchSingleRegime', async (req,res) => {
   goals = regimes[0]["goals"];
   image = regimes[0]["category"];
   regimesObj = JSON.stringify(regimes);
-  res.render('regimePage.hbs', 
+  
+  if (req.session.loggedin) {
+	res.render('regimePage.hbs', 
     {
       name: name,
       price: price,
@@ -406,6 +408,11 @@ app.post('/fetchSingleRegime', async (req,res) => {
       goals: goals,
       image: image
     });
+  }
+  else {
+	res.render('login.hbs')
+	  
+}
 });
 
 // Regime Creation INSERT
